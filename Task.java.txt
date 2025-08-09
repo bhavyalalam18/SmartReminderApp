@@ -1,0 +1,22 @@
+public class Task {
+    String title;
+    String time; // format HH:mm
+    boolean completed;
+
+    public Task(String title, String time) {
+        this.title = title;
+        this.time = time;
+        this.completed = false;
+    }
+
+    public String toString() {
+        return title + "," + time + "," + completed;
+    }
+
+    public static Task fromString(String line) {
+        String[] parts = line.split(",");
+        Task task = new Task(parts[0], parts[1]);
+        task.completed = Boolean.parseBoolean(parts[2]);
+        return task;
+    }
+}
